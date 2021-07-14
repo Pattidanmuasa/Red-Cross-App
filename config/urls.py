@@ -26,21 +26,23 @@ from config import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('demo',views.showDemoPage),
-
+    # path('demo/',views.showDemoPage),
     path('accounts/',include('django.contrib.auth.urls')),
-    path('',views.ShowLoginPage,name="show_login"),
-    path('get_user_details', views.GetUserDetails),
+    path('login/',views.ShowLoginPage,name="show_login"),#admin login
+    # path('get_user_details', views.GetUserDetails),#get admin users
     path('logout_user', views.logout_user,name="logout"),
     path('doLogin',views.doLogin,name="do_login"),
-    path('admin_home',AdminView.admin_home,name="admin_home"),
 
-    path('signup_member',views.signup_member,name="signup_member"),
-    path('do_member_signup',views.do_member_signup,name="do_member_signup"),
+    path('admin_home/',AdminView.admin_home,name="admin_home"),
+    path('member_home/',MemberView.member_home,name="member_home"),
+    
 
-    #ppppppppppppp
-    path('nature_club/', include('nature_club.urls')),
-    path('blogs/', include('blog.urls')),
+    path('register/',views.signup_member,name="signup_member"),
+    path('login/',views.do_member_signup,name="do_member_signup"),
+
+
+    path('', include('nature_club.urls')),
+    path('nature_club/blogs/', include('blog.urls')),
 
 
 ] + static(settings.STATIC_URL, documents=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
