@@ -12,7 +12,7 @@ Licence URI: https://www.os-templates.com/template-terms
 <html lang="">
 <!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
 <head>
-<title>Nocobot</title>
+<title>Nature | Club</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="{% static 'layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
@@ -49,8 +49,14 @@ Licence URI: https://www.os-templates.com/template-terms
           <div class="fl_right"> 
             <!-- ################################################################################################ -->
             <ul class="nospace">
-              <li><a href="#" title="Login"><i class="fas fa-sign-in-alt"></i></a></li>
-              <li><a href="#" title="Sign Up"><i class="fas fa-edit"></i></a></li>
+              {% if user.is_authenticated %}
+              <li><a href="{% url 'logout_user' %}">logout</a></li>
+              {% else %}
+              
+              <li><a href="{% url 'ShowLoginPage' %}" title="Login"><i class="fas fa-sign-in-alt">Login</i></a></li>
+              <li><a href="{% url 'do_member_signup' %}" title="Sign Up"><i class="fas fa-edit">register</i></a></li>
+              
+              {% endif %}
               <li id="searchform">
                 <div>
                   <form action="#" method="post">

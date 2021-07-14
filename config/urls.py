@@ -27,18 +27,18 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # path('demo/',views.showDemoPage),
-    path('accounts/',include('django.contrib.auth.urls')),
-    path('login/',views.ShowLoginPage,name="show_login"),#admin login
+    # path('accounts/',include('django.contrib.auth.urls')),
+    # path('login/',views.ShowLoginPage,name="show_login"),#admin login
     # path('get_user_details', views.GetUserDetails),#get admin users
-    path('logout_user', views.logout_user,name="logout"),
+    path('logout_user', views.logout_user,name="logout_user"),
     path('doLogin',views.doLogin,name="do_login"),
 
     path('admin_home/',AdminView.admin_home,name="admin_home"),
     path('member_home/',MemberView.member_home,name="member_home"),
     
 
-    path('register/',views.signup_member,name="signup_member"),
-    path('login/',views.do_member_signup,name="do_member_signup"),
+    path('register/',views.do_member_signup,name="do_member_signup"),
+    path('login/',views.ShowLoginPage,name="ShowLoginPage"),
 
 
     path('', include('nature_club.urls')),
