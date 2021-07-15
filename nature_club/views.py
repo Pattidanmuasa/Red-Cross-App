@@ -14,11 +14,9 @@ def Home(request):
     leaders = LeaderShip.objects.all()
     return render(request, 'nature_club/Home.html', {'leaders':leaders})
 
-@login_required
 def About(request):
     return render(request, 'nature_club/About.html')
 
-@login_required
 def Contact(request):
 	if request.method == 'POST':
 		form = ContactForm(request.POST)
@@ -29,11 +27,11 @@ def Contact(request):
 		form = ContactForm()
 	return render(request,'nature_club/Contact.html',{'form': form})
 
-@login_required
+
 def events(request):
     images = Events.objects.all()
     return render(request, 'nature_club/Events.html', {'images':images})
-@login_required
+
 def gallery(request):
     images = Gallery.objects.all()
     return render(request, 'nature_club/Gallery.html', {'images':images})

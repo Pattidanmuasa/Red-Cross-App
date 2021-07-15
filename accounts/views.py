@@ -118,20 +118,20 @@ def do_member_signup(request):
 		password1 = request.POST.get('password1')
 		password2 = request.POST.get('password2')
 		if password1 == password2:
-			if User.objects.filter(username=username).exists():
+			if CustomUser.objects.filter(username=username).exists():
 				messages.info(request, 'Username has been taken')
-				return redirect('signup')
-			elif User.objects.filter(email=email).exists():
+				return redirect('do_member_signup')
+			elif CustomUser.objects.filter(email=email).exists():
 				messages.info(request, 'Email already exists')
-				return redirect('login')
+				return redirect('ShowLoginPage')
 			else:
-				user = User.objects.create_user(username=username, email=email, password=password1)
+				user = CustomUser.objects.create_user(username=username, email=email, password=password1)
 				user.save()
 				messages.success(request, 'Congrats for signing up!')
-				return redirect('login')
+				return redirect('ShowLoginPage')
 		else:
 			messages.info(request, 'password does not match')
-			return redirect('login')
+			return redirect('ShowLoginPage')
 	else:
-		return render(request,'login_page.html',{'title':'signup'})
+		return render(request,'signup_member_page.html')
 
