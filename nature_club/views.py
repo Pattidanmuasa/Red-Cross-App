@@ -11,11 +11,14 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 # @login_required
 def Home(request):
-    leaders = LeaderShip.objects.all()
-    return render(request, 'nature_club/Home.html', {'leaders':leaders})
+	leaders = LeaderShip.objects.all()
+	sliders = Slider.objects.all()
+	services = Services.objects.all()
+	return render(request, 'nature_club/Home.html', {'leaders':leaders,'sliders':sliders,'services':services})
 
 def About(request):
-    return render(request, 'nature_club/About.html')
+	items = Team.objects.all()
+	return render(request, 'nature_club/About.html',{'items':items})
 
 def Contact(request):
 	if request.method == 'POST':

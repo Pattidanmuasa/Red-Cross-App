@@ -27,7 +27,22 @@ class LeaderShip(models.Model):
 class Contact(models.Model):
     Email = models.EmailField()
     Phone = models.CharField(max_length=100)
-    Subject = models.CharField(max_length=100)
+    Name = models.CharField(max_length=100)
     Message = models.TextField()
     
+class Team(models.Model):
+    Images = models.FileField(upload_to= 'Team')
+    Position = models.CharField(max_length=100)
+    Name = models.CharField(max_length=100)
+    Description = models.TextField()
 
+class Slider(models.Model):
+    Full_image = models.FileField(upload_to= 'Slider')
+    Small_image = models.FileField(upload_to= 'Slider')
+    title = models.CharField(max_length=100)
+    Description = models.TextField()
+
+class Services(models.Model):
+    Images = models.FileField(upload_to= 'Slider')
+    title = models.CharField(max_length=100)
+    Description = models.TextField()
