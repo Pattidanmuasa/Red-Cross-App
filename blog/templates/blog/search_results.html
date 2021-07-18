@@ -1,0 +1,86 @@
+
+{% extends 'nature_club/Base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+
+       <section id="blog_2" class="clearfix">
+        <div class="container">
+        <div class="row">
+        <div class="blog_2 clearfix">
+         <div class="col-sm-9 blog_2_left clearfix">
+         
+          <div class="blog_2_left_top clearfix">
+          <div class="blog_2_left_inner_1 clearfix">
+           <h4>Blogs</h4>
+          </div>
+          {% if query %}
+          {% if object_list %}
+            {% for post in object_list %}
+          <div class="blog_2_left_inner_2 clearfix">
+            <div class="grid clearfix">
+                          
+                          <figure class="effect-kira">
+                              <img src="{{ post.Images.url}} " alt="img05"/>
+                              <figcaption>						</figcaption>			
+                </figure>
+            </div>
+          </div>
+          <div class="blog_2_left_inner_3 clearfix">
+           <h2><a href="detail.html">{{ post.title }}</a></h2>
+           <h5>{{post.content|slice:":200" }}</h5>
+           <ul>
+            <li><a href="#">{{ post.author }}</a></li>
+            <li><a href="#">{{ post.created_on}} </a></li>
+           </ul>
+           <p><a href="{% url 'BLOG:post_detail' post.slug  %}">READ MORE</a></p>
+          </div>
+          {% endfor %}
+
+          {% else %}
+          <p>Query returned no results.</p>
+       {% endif %}
+   {% endif %} 
+          </div>
+           
+     
+         <div class="col-sm-3 blog_2_right clearfix">
+          <div class="blog_2_right_inner_1 clearfix">
+           <h3>Committies</h3>
+           <p><i class="fa fa-check-circle"></i><a href="detail.html">Editorial</a></p>
+           <p><i class="fa fa-check-circle"></i><a href="detail.html">Presidential</a></p>
+           <p><i class="fa fa-check-circle"></i><a href="detail.html">Secretatriat</a></p>
+           <h3>Tags</h3>
+           <ul>
+            <li><a href="#">Nature</a></li>
+            <li><a href="#">Diversity</a></li>
+            <li><a href="#">Environment</a></li>
+           </ul>
+            <h3>Recent posts</h3>
+          </div>
+          {% for post in object_list %}
+          <div class="blog_2_left_inner_2 clearfix">
+            <div class="grid clearfix">
+                          
+                          <figure class="effect-kira">
+                              <img src="{{ post.Image.url}}" alt="img05">
+                              <figcaption>						</figcaption>			
+                </figure>
+            </div>
+          </div>
+          <div class="blog_2_right_inner_2 clearfix">
+           <h5><a href="{% url 'BLOG:post_detail' post.slug  %}">{{ post.title}}</a></h5>
+           <h6>{{ post.author }}</h6>
+           <h6>{{ post.created_on}}</h6>
+          </div>
+          {% endfor %}
+         </div>
+        </div>
+        </div>
+       </div>
+      </section>
+
+{% endblock %}

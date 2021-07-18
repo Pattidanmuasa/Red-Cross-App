@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import *
 
+
 app_name='NATURE_CLUB'
 
 urlpatterns = [
@@ -8,5 +9,15 @@ urlpatterns = [
     path('nature_club/About', About, name='About'),
     path('nature_club/Contact', Contact, name='Contact'),
     path('nature_club/Gallery', gallery, name='Gallery'),
-    path('nature_club/Events', events, name='Events'),
+
+    path('nature_club/subcom/tree/', tree, name='tree-planting'),
+    path('nature_club/subcom/debate/', debate, name='debate-and-writing'),
+    path('nature_club/subcom/bird/', bird, name='birding'),
+
+    path('nature_club/executive/presidential/', presid, name='presidential'),
+    path('nature_club/executive/editor/', editor, name='editor'),
+    path('nature_club/executive/secretary/', sec, name='secretary'),
+
+    path('nature_club/Search/', SearchResultsView.as_view(), name='search_results'),
+    # path('nature_club/Search/', SearchResultsView, name='search_results'),
 ]

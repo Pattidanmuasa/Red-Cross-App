@@ -2081,10 +2081,14 @@ background-image: url(../img/abt.jpg)!important;
 .cd-secondary-nav{
   position:static!important;
   }
+body{
+ background-attachment: fixed;
+}
 .navbar-collapse{
 max-height:none;
 border:none;
 box-shadow:none; 
+background-attachment: fixed;
    }
 .top_left_inner ul {
     text-align: center;

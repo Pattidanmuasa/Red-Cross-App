@@ -58,7 +58,7 @@ def ShowLoginPage(request):
 		else:
 			messages.error(request,"Invalid username or password.")
 	form = AuthenticationForm()
-	return render(request=request, template_name="login_page.html", context={"login_form":form})
+	return render(request=request, template_name="nature_club/Base.html", context={"login_form":form})
 
 
 # @login_required

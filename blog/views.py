@@ -1,20 +1,21 @@
 from django.http.response import HttpResponse
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
 from django.views import generic
 # from django.views.generic import *
 #from django.views.generic.edit import CreateView
 from .models import *
 from .forms import *
-
-class PostList(generic.ListView):
-    model = Post
-    template_name = 'post_list.html'
-    # context_object_name = 'post'
-   # queryset = Post.objects.filter(status=1).order_by('-created_on')
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib import messages
 
 
 
-
+# class PostList(generic.ListView):
+#     model = Post
+#     template_name = 'post_list.html'
+#     # context_object_name = 'post'
+#    # queryset = Post.objects.filter(status=1).order_by('-created_on')
 
 def PostDetail(request, slug): 
     post = get_object_or_404(Post, slug=slug)
@@ -35,3 +36,25 @@ def contact(request):
 	else:
 		form = ContactForm()
 	return render(request,'contact.html',{'form': form})
+
+def PostList(request):
+	if request.method == "POST":
+		form = AuthenticationForm(request, data=request.POST)
+		if form.is_valid():
+			username = form.cleaned_data.get('username')
+			password = form.cleaned_data.get('password')
+			user = authenticate(username=username, password=password)
+			if user is not None:
+				login(request,user)
+				messages.info(request, f"You are now logged in as {username}.")
+				return redirect("/")
+			else:
+				messages.error(request,"Invalid username or password.")
+		else:
+			messages.error(request,"Invalid username or password.")
+	form = AuthenticationForm()
+	pt = Post.objects.all()
+	return render(request,"blog/post_list.html", {'pt':pt})
+
+
+	
