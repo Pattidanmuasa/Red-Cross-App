@@ -9,6 +9,6 @@ app_name='BLOG'
 urlpatterns = [
 #     path('', views.PostList.as_view(), name='PostList'),
     # path('',views.PostList.as_view(), name='PostList'),
-    path('',views.PostList, name='PostList'),
+    path('',views.postlist, name='postlist'),
     path('<str:slug>/', views.PostDetail, name='post_detail'),
 ]

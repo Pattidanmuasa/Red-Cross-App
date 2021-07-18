@@ -57,7 +57,7 @@ class Slider(models.Model):
     def __str__(self):
         return self.title
 
-class Services(models.Model):
+class Activities(models.Model):
     Images = models.FileField(upload_to= 'Slider')
     title = models.CharField(max_length=100)
     Description = models.TextField()

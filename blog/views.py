@@ -37,7 +37,7 @@ def contact(request):
 		form = ContactForm()
 	return render(request,'contact.html',{'form': form})
 
-def PostList(request):
+def postlist(request):
 	if request.method == "POST":
 		form = AuthenticationForm(request, data=request.POST)
 		if form.is_valid():
@@ -54,6 +54,7 @@ def PostList(request):
 			messages.error(request,"Invalid username or password.")
 	form = AuthenticationForm()
 	pt = Post.objects.all()
+	# pt = Post.objects.filter(status=1).order_by('-created_on')
 	return render(request,"blog/post_list.html", {'pt':pt})
 
 
