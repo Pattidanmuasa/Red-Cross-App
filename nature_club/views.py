@@ -32,7 +32,7 @@ def Home(request):
 	form = AuthenticationForm()
 	leaders = LeaderShip.objects.all()
 	sliders = Slider.objects.all()
-	services = Services.objects.all()
+	services = Activities.objects.all()
 	return render(request, 'nature_club/Home.html', {'leaders':leaders,'sliders':sliders,'services':services})
 
 
