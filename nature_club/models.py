@@ -68,3 +68,28 @@ class Activities(models.Model):
 class Resources(models.Model):
     pdf_name = models.CharField(max_length=100)
     upload_pdf = models.FileField(upload_to= 'Resources')
+
+
+
+
+class editor(models.Model):
+    Image = models.FileField(upload_to= 'executive')
+    title = models.CharField(max_length=100)
+
+
+    def __str__(self):
+        return self.title
+
+class secretary(models.Model):
+    Image = models.FileField(upload_to= 'executive')
+    title = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
+
+class president(models.Model):
+    Image = models.FileField(upload_to= 'executive')
+    title = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title

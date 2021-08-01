@@ -10,6 +10,9 @@
         <h1>Secretariat Department</h1>
       </div>
       <div class="well">
+		{% for img in images %}
+        <center><img src="{{img.Image.url}}" alt=""></center><br><br>
+        {% endfor %}
 <h3>The Secretarial desk is managed by three secretaries and one Ex-Official that is;</h3>
 <ul>
 	<li>The Secretary</li>

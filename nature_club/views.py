@@ -200,8 +200,8 @@ def presid(request):
 		else:
 			messages.error(request,"Invalid username or password.")
 	form = AuthenticationForm()
-	# images = Gallery.objects.all()
-	return render(request, 'nature_club/pred.html')
+	images = Gallery.objects.all()
+	return render(request, 'nature_club/pred.html',  {'images':images})
 
 def editor(request):
 	if request.method == "POST":
@@ -219,8 +219,8 @@ def editor(request):
 		else:
 			messages.error(request,"Invalid username or password.")
 	form = AuthenticationForm()
-	# images = Gallery.objects.all()
-	return render(request, 'nature_club/editor.html')
+	images = editor.objects.all()
+	return render(request, 'nature_club/editor.html'.  {'images':images})
 
 def sec(request):
 	if request.method == "POST":
@@ -238,8 +238,8 @@ def sec(request):
 		else:
 			messages.error(request,"Invalid username or password.")
 	form = AuthenticationForm()
-	# images = Gallery.objects.all()
-	return render(request, 'nature_club/sec.html')
+	images = secretary.objects.all()
+	return render(request, 'nature_club/sec.html', {'images':images})
 
 
 from reportlab.pdfgen import canvas  

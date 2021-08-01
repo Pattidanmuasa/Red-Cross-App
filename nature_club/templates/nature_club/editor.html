@@ -10,6 +10,9 @@
         <h1>Editorial Department</h1>
       </div>
       <div class="well">
+          {% for img in images %}
+        <center><img src="{{img.Image.url}}" alt=""></center><br><br>
+        {% endfor %}
  <h1>Editor Nature Club</h1>
  <h2>Moses Manji</h2>
 
