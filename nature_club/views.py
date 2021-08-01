@@ -220,7 +220,7 @@ def editor(request):
 			messages.error(request,"Invalid username or password.")
 	form = AuthenticationForm()
 	images = editor.objects.all()
-	return render(request, 'nature_club/editor.html'.  {'images':images})
+	return render(request, 'nature_club/editor.html',{'images':images})
 
 def sec(request):
 	if request.method == "POST":
