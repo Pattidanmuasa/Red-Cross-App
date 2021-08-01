@@ -1,0 +1,23 @@
+
+
+{% extends 'nature_club/Base.html' %}
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+
+{% load static %}
+{% block content %}
+
+
+<div class="container">
+    <div class="page-header">
+        <h1>Karatina Nature Club Resources</h1>
+    </div>
+    {% for pdf in pdfs %}
+      <div class="well">
+        <p>{{pdf.pdf_name}}</p>
+        <p><a href="{{pdf.upload_pdf.url}}" download> Download {{pdf.upload_pdf.url}}</a></p>
+      </div>
+      {% endfor %}
+    </div>
+
+
+{% endblock %}

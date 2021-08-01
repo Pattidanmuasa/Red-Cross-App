@@ -1247,7 +1247,6 @@ border-top: 1px solid #2461243d;
 
 /*********************about****************/
 #about{
-/* background-image: url('abtt.jpg'); */
 background-repeat: no-repeat;
 background-size: cover;
    }
@@ -1529,9 +1528,7 @@ figure.effect-steve:hover img {
 
 
 /*********************about_6****************/
-.about_6_middle{
-  
- }
+
 .about_6_left_inner .panel-primary>.panel-heading {
     padding-top: 20px;
     padding-bottom: 20px;

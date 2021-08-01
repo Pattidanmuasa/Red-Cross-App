@@ -23,6 +23,8 @@ from django.conf import settings
 from accounts import views, AdminView, MemberView
 from config import settings
 
+from django.conf.urls import handler404
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 
@@ -46,3 +48,5 @@ urlpatterns = [
 
 
 ] + static(settings.STATIC_URL, documents=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
+handler404 = "nature_club.views.page_not_found_view"

@@ -19,5 +19,8 @@ urlpatterns = [
     path('nature_club/executive/secretary/', sec, name='secretary'),
 
     path('nature_club/Search/', SearchResultsView.as_view(), name='search_results'),
+    path('nature_club/pdf',getpdf, name='getpdf'),
+    # path('nature_club/pdf/download',download_pdf, name='download_pdf'),
     # path('nature_club/Search/', SearchResultsView, name='search_results'),
+    # path('nature_club/download/<str:filepath>/', downloads, name="downloads"),
 ]

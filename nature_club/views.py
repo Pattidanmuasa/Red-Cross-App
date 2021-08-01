@@ -55,7 +55,8 @@ def About(request):
 	items = Team.objects.all()
 	return render(request, 'nature_club/About.html',{'items':items})
 
-
+def page_not_found_view(request, exception):
+    return render(request, 'nature_club/404.html', status=404)
 
 
 def Contact(request):
@@ -114,34 +115,7 @@ class SearchResultsView(ListView):
         object_list = Post.objects.filter(Q(title__icontains=query) | Q(content__icontains=query)|Q(status__icontains=query))
         return object_list
 	
-# def SearchResultsView(request):
-#     query = request.GET.get('q','')
-#     #The empty string handles an empty "request"
-#     if query:
-#             queryset = (Q(title__icontains=query) | Q(content__icontains=query)|Q(status__icontains=query))
-#             #I assume "text" is a field in your model
-#             #i.e., text = model.TextField()
-#             #Use | if searching multiple fields, i.e., 
-#             #queryset = (Q(text__icontains=query))|(Q(other__icontains=query))
-#             results = Post.objects.filter(queryset).distinct()
-#     else:
-# 		request.method == "POST":
-# 		form = AuthenticationForm(request, data=request.POST)
-# 		if form.is_valid():
-# 			username = form.cleaned_data.get('username')
-# 			password = form.cleaned_data.get('password')
-# 			user = authenticate(username=username, password=password)
-# 			if user is not None:
-# 				login(request,user)
-# 				messages.info(request, f"You are now logged in as {username}.")
-# 				return redirect("/")
-# 			else:
-# 				messages.error(request,"Invalid username or password.")
-# 		else:
-# 			messages.error(request,"Invalid username or password.")
-# 	form = AuthenticationForm()
-# 	return render(request, 'blog/search_results.html', {'results':results, 'query':query})
-	   
+
     
 
 #     #You can also set context = {'results':results, 'query':query} after 
@@ -266,3 +240,14 @@ def sec(request):
 	form = AuthenticationForm()
 	# images = Gallery.objects.all()
 	return render(request, 'nature_club/sec.html')
+
+
+from reportlab.pdfgen import canvas  
+from django.http import HttpResponse  
+from nature_club.models import Resources
+
+def getpdf(request):
+	pdfs = Resources.objects.all()
+	return render(request, 'nature_club/pdfs.html',{'pdfs':pdfs})
+
+

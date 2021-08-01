@@ -5,8 +5,9 @@ Author: Templates On Web
 Author URI: http://templateonweb.com/
 Licence: <a href="http://www.templateonweb.com/terms.php?v=content&contentid=152">Website Template Licence</a>
 */
-body{
+html body{
  font-family: 'Yanone Kaffeesatz', sans-serif;
+ overflow-x:inherit;
 	   }
 
 .border_bottom_1{
@@ -675,7 +676,7 @@ color:#631e26;
 }
 
 .center_5_middle_main_left_inner .ih-item {
-  position: relative;
+  position: absolute;
   -webkit-transition: all 0.35s ease-in-out;
   -moz-transition: all 0.35s ease-in-out;
   transition: all 0.35s ease-in-out;
@@ -1247,7 +1248,6 @@ border-top: 1px solid #2461243d;
 
 /*********************about****************/
 #about{
-/* background-image: url('abtt.jpg'); */
 background-repeat: no-repeat;
 background-size: cover;
    }
@@ -1529,9 +1529,7 @@ figure.effect-steve:hover img {
 
 
 /*********************about_6****************/
-.about_6_middle{
-  
- }
+
 .about_6_left_inner .panel-primary>.panel-heading {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -1977,9 +1975,7 @@ figure.effect-milo:hover p {
 
 
 /*********************detail****************/
-.detail{
-background-image: url(../img/abt.jpg)!important;
-   }
+
 .blog_2_left_inner_4 h5{
   font-size:20px;
   color:#333333;
